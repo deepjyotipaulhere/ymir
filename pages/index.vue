@@ -1,31 +1,28 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        ymir
-      </h1>
-      <h2 class="subtitle">
-        Ymir Labs Handwriting Recognition
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+	<div>
+		<div class="ui pointing menu">
+			<a class="active item">
+				Home
+			</a>
+			<a class="item">
+				Messages
+			</a>
+			<a class="item">
+				Friends
+			</a>
+			<div class="right menu">
+				<div class="item">
+				<div class="ui transparent icon input">
+					<input type="text" placeholder="Search...">
+					<i class="search link icon"></i>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="ui segment container">
+			<h1>Handwriting Recognition</h1>
+		</div>
+	</div>
 </template>
 
 <script>
