@@ -58,6 +58,8 @@ import 'filepond/dist/filepond.min.css';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
 import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+import { Storage } from '@google-cloud/storage'
+
 const FilePond = vueFilePond( FilePondPluginFileValidateType, FilePondPluginImagePreview );
 export default {
 	name: 'app',
@@ -71,14 +73,12 @@ export default {
     },
     methods: {
 		addtopreview(error, file){
-            // var p='<br><img style="max-width:100%;height:auto" src="'+file.serverId+'" /><br>'
-            // this.content.text+= p
-			// this.myFiles=[]
 			console.log(file)
 		},
 		fileadded(error, file){
-			console.log(file);
-			
+			// console.log(file);
+			// const storage=new Storage()
+			// storage.bucket('ymirhandwriting').upload(file)
 		}
     },
 }
