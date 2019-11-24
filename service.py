@@ -49,6 +49,7 @@ def detect():
         'file': str(x['filename']),
         'text': response[0].description
     })
+    client.close()
 
     return response[0].description
 
@@ -58,6 +59,7 @@ def getrecords():
     db = client.ymir
     coll=db.records
     rows=coll.find({}, {'_id': False})
+    client.close()
     res=[row for row in rows]
     return jsonify(res)
 

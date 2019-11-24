@@ -2,6 +2,7 @@
 
 > Ymir Labs Handwriting Recognition
 
+This project is built using Nuxt JS(Vue Framework) as frontend, Python/Flask as backend and MongoDB as database
 ## Build Setup
 
 ``` bash
