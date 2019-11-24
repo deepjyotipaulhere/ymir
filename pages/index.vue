@@ -19,51 +19,71 @@
 				</div>
 			</div>
 		</div>
-		<div class="ui segment container">
+		<div class="ui container">
 			<h1>Handwriting Recognition</h1>
+			<div class="ui segment">
+				<div class="ui two column very relaxed grid">
+					<div class="column">
+						<no-ssr>
+							<file-pond
+								name="test"
+								ref="pond1"
+								label-idle="Drop files here..."
+								allow-multiple="false"
+								accepted-file-types="image/jpeg, image/png"
+								v-bind:files="myFiles"
+                            	v-on:processfile="addtopreview"
+								v-on:addfile="fileadded"
+								/>
+						</no-ssr>
+					</div>
+					<div class="column">
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+					</div>
+				</div>
+				<div class="ui vertical divider">
+					and
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
+import vueFilePond from 'vue-filepond';
+import 'filepond/dist/filepond.min.css';
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+const FilePond = vueFilePond( FilePondPluginFileValidateType, FilePondPluginImagePreview );
 export default {
-  components: {
-    Logo
-  }
+	name: 'app',
+    data: function() {
+        return {
+			myFiles: []
+		};
+    },
+    components: {
+        FilePond
+    },
+    methods: {
+		addtopreview(error, file){
+            // var p='<br><img style="max-width:100%;height:auto" src="'+file.serverId+'" /><br>'
+            // this.content.text+= p
+			// this.myFiles=[]
+			console.log(file)
+		},
+		fileadded(error, file){
+			console.log(file);
+			
+		}
+    },
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
